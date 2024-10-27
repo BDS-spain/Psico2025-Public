@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario Detallado de Evaluación Psicológica</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .section { display: none; }
+        .visible { display: block; }
+        .progress-bar { width: 0%; height: 20px; background-color: #4CAF50; transition: width 0.3s; }
+        .container { max-width: 600px; margin: auto; padding: 20px; }
+        button { padding: 10px; margin: 10px 5px; }
+        .instructions { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Cuestionario Detallado de Evaluación Psicológica Pre-tratamiento Dental</h1>
+
+    <!-- Instrucciones -->
+    <div class="instructions">
+        <p>Estimado/a participante,</p>
+        <p>Gracias por dedicar unos minutos de su tiempo para completar este cuestionario para BDS. Sus respuestas serán de gran valor para nuestros estudios internos de desarrollo y mejora de servicios.</p>
+        <p>Le informamos que este cuestionario es <strong>completamente anónimo</strong> y se utiliza únicamente con fines de análisis interno. Los datos recogidos no se vincularán a ninguna información personal identificable y serán tratados en conformidad con la normativa vigente de protección de datos.</p>
+        <p>Al hacer clic en "Siguiente", usted confirma que ha leído y comprendido estas instrucciones y que da su consentimiento para participar voluntariamente en este cuestionario, así como para aceptar la <a href="https://bdspain.com/politica-de-privacidad" target="_blank">política de privacidad y protección de datos de bdspain.com</a>.</p>
+    </div>
+
+    <div class="progress-bar" id="progress-bar"></div>
+
+    <!-- Sección 1: Datos Demográficos -->
+    <div class="section visible" id="section-1">
+        <h2>1. Datos Demográficos</h2>
+
+        <label>Edad:</label><br>
+        <input type="radio" name="edad" value="18-34" required> 18-34<br>
+        <input type="radio" name="edad" value="35-55"> 35-55<br>
+        <input type="radio" name="edad" value="56-70"> 56-70<br>
+        <input type="radio" name="edad" value=">70"> Más de 70<br><br>
+
+        <label>Género:</label><br>
+        <input type="radio" name="genero" value="Femenino" required> Femenino<br>
+        <input type="radio" name="genero" value="Masculino"> Masculino<br><br>
+
+        <label>Profesión:</label><br>
+        <input type="text" name="profesion" maxlength="50" placeholder="Especifique su profesión"><br><br>
+
+        <label>¿Tiene medicación prescrita actualmente?</label><br>
+        <input type="radio" name="medicacion" value="Sí" required> Sí<br>
+        <input type="radio" name="medicacion" value="No"> No<br><br>
+
+        <label>¿Antecedentes de alguna cirugía?</label><br>
+        <input type="radio" name="cirugia" value="Sí" required> Sí<br>
+        <input type="radio" name="cirugia" value="No"> No<br><br>
+
+        <label>¿Tiene alguna alergia?</label><br>
+        <input type="radio" name="alergias" value="Sí" required onclick="document.getElementById('alergia_descripcion').style.display='block'"> Sí<br>
+        <input type="radio" name="alergias" value="No" onclick="document.getElementById('alergia_descripcion').style.display='none'"> No<br>
+        <textarea id="alergia_descripcion" style="display:none;" maxlength="100" placeholder="Describa su(s) alergia(s) (100 caracteres)"></textarea><br><br>
+
+        <label>Estado Civil:</label><br>
+        <input type="radio" name="estado_civil" value="Soltero/a" required> Soltero/a<br>
+        <input type="radio" name="estado_civil" value="Casado/a"> Casado/a<br>
+        <input type="radio" name="estado_civil" value="Divorciado/a"> Divorciado/a<br>
+        <input type="radio" name="estado_civil" value="Viudo/a"> Viudo/a<br>
+        <input type="radio" name="estado_civil" value="Pareja de hecho"> Pareja de hecho<br><br>
+
+        <label>Nivel Educativo:</label><br>
+        <input type="radio" name="nivel_educativo" value="Sin estudios"> Sin estudios<br>
+        <input type="radio" name="nivel_educativo" value="Estudios primarios"> Estudios primarios<br>
+        <input type="radio" name="nivel_educativo" value="Estudios secundarios"> Estudios secundarios<br>
+        <input type="radio" name="nivel_educativo" value="Formación profesional"> Formación profesional<br>
+        <input type="radio" name="nivel_educativo" value="Estudios universitarios"> Estudios universitarios<br>
+        <input type="radio" name="nivel_educativo" value="Estudios de postgrado"> Estudios de postgrado<br><br>
+
+        <button onclick="nextSection(1)">Siguiente</button>
+    </div>
+
+    <!-- Sección 2: Anamnesis -->
+    <div class="section" id="section-2">
+        <h2>2. Anamnesis</h2>
+
+        <label>Frecuencia de visitas al dentista:</label><br>
+        <input type="radio" name="frecuencia_visitas" value="Primera vez" required> Primera vez<br>
+        <input type="radio" name="frecuencia_visitas" value="Menos de una vez al año"> Menos de una vez al año<br>
+        <input type="radio" name="frecuencia_visitas" value="Una vez al año"> Una vez al año<br>
+        <input type="radio" name="frecuencia_visitas" value="Dos veces al año"> Dos veces al año<br>
+        <input type="radio" name="frecuencia_visitas" value="Más de dos veces al año"> Más de dos veces al año<br><br>
+
+        <label>Experiencias previas con tratamientos dentales (Escala 1-5):</label><br>
+        <select name="experiencia_tratamientos" required>
+            <option value="1">1 - Muy negativa</option>
+            <option value="2">2 - Negativa</option>
+            <option value="3">3 - Neutral</option>
+            <option value="4">4 - Positiva</option>
+            <option value="5">5 - Muy positiva</option>
+        </select><br><br>
+
+        <label>Nivel de dolor dental actual (Escala 1-10):</label><br>
+        <select name="dolor_dental" required>
+            <option value="1">1 - Sin dolor</option>
+            <option value="5">5 - Dolor moderado</option>
+            <option value="10">10 - Dolor extremo</option>
+        </select><br><br>
+
+        <label>¿Qué le preocupa más acerca del tratamiento dental? (Múltiples respuestas):</label><br>
+        <input type="checkbox" name="preocupacion" value="Dolor físico"> Dolor físico<br>
+        <input type="checkbox" name="preocupacion" value="Costos del tratamiento"> Costos del tratamiento<br>
+        <input type="checkbox" name="preocupacion" value="Resultados estéticos"> Resultados estéticos<br>
+        <input type="checkbox" name="preocupacion" value="Tiempo de recuperación"> Tiempo de recuperación<br>
+        <input type="checkbox" name="preocupacion" value="Efectos secundarios o complicaciones"> Efectos secundarios o complicaciones<br>
+        <input type="checkbox" name="preocupacion" value="Otro" onclick="document.getElementById('preocupacion_otro').style.display='block'"> Otro<br>
+        <textarea id="preocupacion_otro" style="display:none;" maxlength="50" placeholder="Especifique"></textarea><br><br>
+
+        <label>¿Padece alguna enfermedad crónica?</label><br>
+        <input type="radio" name="enfermedad_cronica" value="Sí" onclick="document.getElementById('enfermedad_texto').style.display='block'" required> Sí<br>
+        <input type="radio" name="enfermedad_cronica" value="No" onclick="document.getElementById('enfermedad_texto').style.display='none'"> No<br><br>
+        <textarea id="enfermedad_texto" style="display:none;" maxlength="100" placeholder="Cuál/es"></textarea><br><br>
+
+        <label>¿Cuándo obtuvo el diagnóstico?</label><br>
+        <input type="radio" name="diagnostico_tiempo" value="Hace menos de 5 años"> Hace menos de 5 años<br>
+        <input type="radio" name="diagnostico_tiempo" value="Hace más de 5 años"> Hace más de 5 años<br><br>
+
+        <button onclick="prevSection(2)">Atrás</button>
+        <button onclick="nextSection(2)">Siguiente</button>
+    </div>
+
+    <!-- Sección 3: Antecedentes Psicológicos y Psiquiátricos -->
+    <div class="section" id="section-3">
+        <h2>3. Antecedentes Psicológicos y Psiquiátricos</h2>
+
+        <label>Diagnósticos previos (múltiples respuestas):</label><br>
+        <input type="checkbox" name="diagnostico" value="Ansiedad"> Ansiedad<br>
+        <input type="checkbox" name="diagnostico" value="Depresión"> Depresión<br>
+        <input type="checkbox" name="diagnostico" value="Trastorno de pánico"> Trastorno de pánico<br>
+        <input type="checkbox" name="diagnostico" value="Fobias específicas"> Fobias específicas<br>
+        <input type="checkbox" name="diagnostico" value="Trastorno obsesivo-compulsivo"> Trastorno obsesivo-compulsivo<br>
+        <input type="checkbox" name="diagnostico" value="Ninguno"> Ninguno<br>
+        <input type="checkbox" name="diagnostico" value="Otro"> Otro (especificar): <input type="text" maxlength="50"><br><br>
+
+        <label>¿Está bajo medicación por alguna de las condiciones?</label><br>
+        <input type="radio" name="medicacion_condiciones" value="Sí" onclick="document.getElementById('medicacion_texto').style.display='block'" required> Sí<br>
+        <input type="radio" name="medicacion_condiciones" value="No" onclick="document.getElementById('medicacion_texto').style.display='none'"> No<br><br>
+        <textarea id="medicacion_texto" style="display:none;" maxlength="50" placeholder="Cuál/es"></textarea><br><br>
+
+        <label>Experiencias traumáticas dentales previas:</label><br>
+        <input type="radio" name="trauma_dental" value="Sí" onclick="document.getElementById('descripcion_trauma').style.display='block'" required> Sí<br>
+        <input type="radio" name="trauma_dental" value="No" onclick="document.getElementById('descripcion_trauma').style.display='none'"> No<br><br>
+        <textarea id="descripcion_trauma" style="display:none;" maxlength="100" placeholder="Breve descripción (100 caracteres)"></textarea><br><br>
+
+        <button onclick="prevSection(3)">Atrás</button>
+        <button onclick="nextSection(3)">Siguiente</button>
+    </div>
+
+    <!-- Sección 4: Evaluación de Ansiedad Dental -->
+    <div class="section" id="section-4">
+        <h2>4. Evaluación de Ansiedad Dental</h2>
+
+        <label>Pensar en la cita dental (Escala 1-5):</label><br>
+        <select name="ansiedad_cita" required>
+            <option value="1">1 - Nada de ansiedad</option>
+            <option value="2">2 - Poca ansiedad</option>
+            <option value="3">3 - Ansiedad moderada</option>
+            <option value="4">4 - Bastante ansiedad</option>
+            <option value="5">5 - Ansiedad extrema</option>
+        </select><br><br>
+
+        <label>Pensar en el sonido del instrumental (Escala 1-5):</label><br>
+        <select name="sonido_instrumental" required>
+            <option value="1">1 - Nada de ansiedad</option>
+            <option value="2">2 - Poca ansiedad</option>
+            <option value="3">3 - Ansiedad moderada</option>
+            <option value="4">4 - Bastante ansiedad</option>
+            <option value="5">5 - Ansiedad extrema</option>
+        </select><br><br>
+
+        <label>¿Qué tan en control siente que está durante un procedimiento dental? (Escala 1-5):</label><br>
+        <select name="control_procedimiento" required>
+            <option value="1">1 - Sin control</option>
+            <option value="2">2 - Poco control</option>
+            <option value="3">3 - Moderado control</option>
+            <option value="4">4 - Bastante control</option>
+            <option value="5">5 - Total control</option>
+        </select><br><br>
+
+        <label>¿Qué tan incómodo/a se siente con los sonidos o la visión de instrumentos dentales? (Escala 1-5):</label><br>
+        <select name="incómodo_sonidos" required>
+            <option value="1">1 - Nada incómodo/a</option>
+            <option value="2">2 - Poco incómodo/a</option>
+            <option value="3">3 - Moderadamente incómodo/a</option>
+            <option value="4">4 - Bastante incómodo/a</option>
+            <option value="5">5 - Muy incómodo/a</option>
+        </select><br><br>
+
+        <button onclick="prevSection(4)">Atrás</button>
+        <button onclick="nextSection(4)">Siguiente</button>
+    </div>
+
+    <!-- Sección 5: Autopercepción y Autoestima -->
+    <div class="section" id="section-5">
+        <h2>5. Autopercepción y Autoestima</h2>
+
+        <label>Me siento cómodo/a con mi sonrisa (Escala 1-5):</label><br>
+        <select name="comodidad_sonrisa" required>
+            <option value="1">1 - Totalmente en desacuerdo</option>
+            <option value="2">2 - En desacuerdo</option>
+            <option value="3">3 - Neutral</option>
+            <option value="4">4 - De acuerdo</option>
+            <option value="5">5 - Totalmente de acuerdo</option>
+        </select><br><br>
+
+        <label>Me siento cómodo/a con mi imagen corporal (Escala 1-5):</label><br>
+        <select name="imagen_corporal" required>
+            <option value="1">1 - Totalmente en desacuerdo</option>
+            <option value="2">2 - En desacuerdo</option>
+            <option value="3">3 - Neutral</option>
+            <option value="4">4 - De acuerdo</option>
+            <option value="5">5 - Totalmente de acuerdo</option>
+        </select><br><br>
+
+        <button onclick="prevSection(5)">Atrás</button>
+        <button onclick="nextSection(5)">Siguiente</button>
+    </div>
+
+    <!-- Sección 6: Apoyo Social y Familiar -->
+    <div class="section" id="section-6">
+        <h2>6. Apoyo Social y Familiar</h2>
+
+        <label>Red de apoyo disponible (múltiples respuestas):</label><br>
+        <input type="checkbox" name="apoyo" value="Familia cercana"> Familia cercana<br>
+        <input type="checkbox" name="apoyo" value="Amigos cercanos"> Amigos cercanos<br>
+        <input type="checkbox" name="apoyo" value="Cónyuge/pareja"> Cónyuge/pareja<br>
+        <input type="checkbox" name="apoyo" value="Médico/terapeuta"> Médico/terapeuta<br>
+        <input type="checkbox" name="apoyo" value="Ninguno" onclick="document.getElementById('ninguno_texto').style.display='block'"> Ninguno<br>
+        <textarea id="ninguno_texto" style="display:none;" maxlength="50" placeholder="Por qué"></textarea><br><br>
+
+        <input type="checkbox" name="apoyo" value="Otros" onclick="document.getElementById('otros_texto').style.display='block'"> Otros<br>
+        <textarea id="otros_texto" style="display:none;" maxlength="40" placeholder="Especifique"></textarea><br><br>
+
+        <button onclick="prevSection(6)">Atrás</button>
+        <button onclick="nextSection(6)">Siguiente</button>
+    </div>
+
+    <!-- Sección 7: Comprensión del Tratamiento -->
+    <div class="section" id="section-7">
+        <h2>7. Comprensión del Tratamiento</h2>
+
+        <label>Si va a recibir tratamiento dental, ¿comprende normalmente el procedimiento? (Escala 1-5):</label><br>
+        <select name="comprension_procedimiento" required>
+            <option value="1">1 - Muy poco</option>
+            <option value="2">2 - Poco</option>
+            <option value="3">3 - Moderadamente</option>
+            <option value="4">4 - Bien</option>
+            <option value="5">5 - Muy bien</option>
+        </select><br><br>
+
+        <label>Compromiso con el seguimiento (Escala 1-5):</label><br>
+        <select name="compromiso_seguimiento" required>
+            <option value="1">1 - Muy bajo compromiso</option>
+            <option value="2">2 - Bajo compromiso</option>
+            <option value="3">3 - Compromiso moderado</option>
+            <option value="4">4 - Alto compromiso</option>
+            <option value="5">5 - Muy alto compromiso</option>
+        </select><br><br>
+
+        <label>Compromiso con las instrucciones del dentista (Escala 1-5):</label><br>
+        <select name="compromiso_instrucciones" required>
+            <option value="1">1 - Muy bajo compromiso</option>
+            <option value="2">2 - Bajo compromiso</option>
+            <option value="3">3 - Compromiso moderado</option>
+            <option value="4">4 - Alto compromiso</option>
+            <option value="5">5 - Muy alto compromiso</option>
+        </select><br><br>
+
+        <label>¿Qué espera lograr con el tratamiento dental? (Seleccione hasta 3 opciones):</label><br>
+        <input type="checkbox" name="expectativas" value="Eliminar el dolor"> Eliminar el dolor<br>
+        <input type="checkbox" name="expectativas" value="Mejorar la función dental"> Mejorar la función dental<br>
+        <input type="checkbox" name="expectativas" value="Cambiar la estética de mi sonrisa"> Cambiar la estética de mi sonrisa<br>
+        <input type="checkbox" name="expectativas" value="Ganar confianza en mi apariencia"> Ganar confianza en mi apariencia<br>
+        <input type="checkbox" name="expectativas" value="Prevenir futuros problemas dentales"> Prevenir futuros problemas dentales<br>
+        <input type="checkbox" name="expectativas" value="Otro" onclick="document.getElementById('expectativas_otro').style.display='block'"> Otro<br>
+        <textarea id="expectativas_otro" style="display:none;" maxlength="50" placeholder="Especifique"></textarea><br><br>
+
+        <button onclick="prevSection(7)">Atrás</button>
+        <button onclick="nextSection(7)">Siguiente</button>
+    </div>
+
+    <!-- Sección 8: Evaluación de Riesgo -->
+    <div class="section" id="section-8">
+        <h2>8. Evaluación de Riesgo</h2>
+
+        <label>Factores de estrés actuales (múltiples respuestas):</label><br>
+        <input type="checkbox" name="estres" value="Problemas económicos"> Problemas económicos<br>
+        <input type="checkbox" name="estres" value="Problemas laborales"> Problemas laborales<br>
+        <input type="checkbox" name="estres" value="Problemas familiares/personales" onclick="document.getElementById('familiares_texto').style.display='block'"> Problemas familiares/personales<br>
+        <textarea id="familiares_texto" style="display:none;" maxlength="40" placeholder="Describa el problema"></textarea><br>
+        <input type="checkbox" name="estres" value="Sin factores de estrés"> Sin factores de estrés<br><br>
+
+        <label>¿Cómo afronta generalmente situaciones de estrés o ansiedad? (Selección múltiple)</label><br>
+        <input type="checkbox" name="afrontamiento" value="Practico técnicas de relajación"> Practico técnicas de relajación (respiración, meditación)<br>
+        <input type="checkbox" name="afrontamiento" value="Busco distracción"> Busco distracción o actividades que me relajen<br>
+        <input type="checkbox" name="afrontamiento" value="Hablo sobre mi preocupación"> Hablo sobre mi preocupación con alguien de confianza<br>
+        <input type="checkbox" name="afrontamiento" value="Evito la situación"> Evito la situación hasta último momento<br>
+        <input type="checkbox" name="afrontamiento" value="Otro" onclick="document.getElementById('afrontamiento_otro').style.display='block'"> Otro<br>
+        <textarea id="afrontamiento_otro" style="display:none;" maxlength="40" placeholder="Especifique"></textarea><br><br>
+
+        <button onclick="prevSection(8)">Atrás</button>
+        <button onclick="submitForm()">Enviar Cuestionario</button>
+    </div>
+</div>
+
+<script>
+    let currentSection = 1;
+
+    function nextSection(section) {
+        document.getElementById(`section-${section}`).classList.remove('visible');
+        currentSection = section + 1;
+        if (currentSection <= 8) {
+            document.getElementById(`section-${currentSection}`).classList.add('visible');
+            updateProgress();
+        }
+    }
+
+    function prevSection(section) {
+        document.getElementById(`section-${section}`).classList.remove('visible');
+        currentSection = section - 1;
+        if (currentSection >= 1) {
+            document.getElementById(`section-${currentSection}`).classList.add('visible');
+            updateProgress();
+        }
+    }
+
+    function updateProgress() {
+        const progress = (currentSection / 8) * 100;
+        document.getElementById('progress-bar').style.width = `${progress}%`;
+    }
+
+    function submitForm() {
+        alert("Cuestionario enviado. ¡Gracias!");
+    }
+</script>
+
+</body>
+</html>
